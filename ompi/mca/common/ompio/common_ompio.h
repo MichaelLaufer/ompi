@@ -51,7 +51,7 @@
     if ( 1==_verbose && 0==_fh->f_rank ) printf("File: %s info: %s value %s %s\n", _fh->f_filename, _infostr, _infoval, _msg); \
     if ( 2==_verbose ) printf("File: %s info: %s value %s %s\n", _fh->f_filename, _infostr, _infoval, _msg); \
     }
-    
+
 
 /*
  * Flags
@@ -87,7 +87,7 @@
 #define OMPIO_LOCK_ENTIRE_REGION  10
 #define OMPIO_LOCK_SELECTIVE      11
 
-#define OMPIO_FCOLL_WANT_TIME_BREAKDOWN 0
+#define OMPIO_FCOLL_WANT_TIME_BREAKDOWN 1
 #define MCA_IO_DEFAULT_FILE_VIEW_SIZE 4*1024*1024
 
 #define OMPIO_UNIFORM_DIST_THRESHOLD     0.5
@@ -243,11 +243,11 @@ typedef struct mca_common_ompio_data_t mca_common_ompio_data_t;
 #include "common_ompio_aggregators.h"
 
 OMPI_DECLSPEC int mca_common_ompio_file_write (ompio_file_t *fh, const void *buf,  int count,
-                                               struct ompi_datatype_t *datatype, 
+                                               struct ompi_datatype_t *datatype,
                                                ompi_status_public_t *status);
 
 OMPI_DECLSPEC int mca_common_ompio_file_write_at (ompio_file_t *fh, OMPI_MPI_OFFSET_TYPE offset,  const void *buf,
-                                                  int count,  struct ompi_datatype_t *datatype, 
+                                                  int count,  struct ompi_datatype_t *datatype,
                                                   ompi_status_public_t *status);
 
 OMPI_DECLSPEC int mca_common_ompio_file_iwrite (ompio_file_t *fh, const void *buf, int count,
@@ -258,11 +258,11 @@ OMPI_DECLSPEC int mca_common_ompio_file_iwrite_at (ompio_file_t *fh,  OMPI_MPI_O
                                                    ompi_request_t **request);
 
 OMPI_DECLSPEC int mca_common_ompio_file_write_all (ompio_file_t *fh, const void *buf,
-                                                   int count, struct ompi_datatype_t *datatype, 
+                                                   int count, struct ompi_datatype_t *datatype,
                                                    ompi_status_public_t *status);
 
 OMPI_DECLSPEC int mca_common_ompio_file_write_at_all (ompio_file_t *fh, OMPI_MPI_OFFSET_TYPE offset, const void *buf,
-                                                      int count, struct ompi_datatype_t *datatype, 
+                                                      int count, struct ompi_datatype_t *datatype,
                                                       ompi_status_public_t *status);
 
 OMPI_DECLSPEC int mca_common_ompio_file_iwrite_all (ompio_file_t *fp, const void *buf,
@@ -282,7 +282,7 @@ OMPI_DECLSPEC int mca_common_ompio_file_read (ompio_file_t *fh,  void *buf,  int
                                               struct ompi_datatype_t *datatype, ompi_status_public_t *status);
 
 OMPI_DECLSPEC int mca_common_ompio_file_read_at (ompio_file_t *fh, OMPI_MPI_OFFSET_TYPE offset,  void *buf,
-                                                 int count, struct ompi_datatype_t *datatype, 
+                                                 int count, struct ompi_datatype_t *datatype,
                                                  ompi_status_public_t * status);
 
 OMPI_DECLSPEC int mca_common_ompio_file_iread (ompio_file_t *fh, void *buf, int count,
@@ -323,7 +323,7 @@ OMPI_DECLSPEC int mca_common_ompio_set_file_defaults (ompio_file_t *fh);
 OMPI_DECLSPEC int mca_common_ompio_set_view (ompio_file_t *fh,  OMPI_MPI_OFFSET_TYPE disp,
                                              ompi_datatype_t *etype,  ompi_datatype_t *filetype, const char *datarep,
                                              opal_info_t *info);
- 
+
 
 /*
  * Function that takes in a datatype and buffer, and decodes that datatype

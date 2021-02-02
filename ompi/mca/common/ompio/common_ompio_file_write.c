@@ -54,7 +54,7 @@ int mca_common_ompio_file_write (ompio_file_t *fh,
     size_t spc=0;
     int i = 0; /* index into the decoded iovec of the buffer */
     int j = 0; /* index into the file view iovec */
-
+    opal_output(0, "Inside of common file write\n");
     if (fh->f_amode & MPI_MODE_RDONLY){
 //      opal_output(10, "Improper use of FILE Mode, Using RDONLY for write!\n");
         ret = MPI_ERR_READ_ONLY;
