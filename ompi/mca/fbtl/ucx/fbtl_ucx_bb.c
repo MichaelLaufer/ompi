@@ -43,8 +43,8 @@ int ucx_BB_open(struct ucx_BB BB){
     path = getenv("BB_PATH");  // export BB_PATH=/home/mlaufer/test/BB_PATH/
 	//path = "./BB_PATH/";
     random_int = random_num();
-    sprintf(BB.BB_filename, "%srank%d_%d", path, BB.rank, random_int);
-	fd = open(BB.BB_filename, O_RDWR | O_CREAT, 0666);
+    sprintf(BB.BB_filename, "%s/data_%d_%d", path, BB.rank, random_int);
+	fd = open(BB.BB_filename, O_RDWR | O_CREAT, 0644);
     return fd;
 }
 
